@@ -1,5 +1,6 @@
 package com.cvsreview;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Github : http://github.com/76jin
  */
 @SpringBootApplication
+@MapperScan(basePackages = {
+        "com.cvsreview.notice.persistence"
+})
 public class WebApplication {
 
     public static void main(String[] args) {

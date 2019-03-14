@@ -1,0 +1,79 @@
+spring:
+  profiles.active: dev
+
+### Server ###
+server:
+  port: 9000
+---
+
+spring:
+  profiles: dev
+
+### Common ###
+#spring:
+  output:
+  ansi:
+    enabled: DETECT
+##############
+
+### LOG ###
+logging:
+  level:
+    root: info
+    com.cvsreview: debug
+
+  file:
+  #    max-size:
+  #    max-history:
+  path: logs/web.log
+
+###########
+
+### MyBatis ###
+mybatis:
+  type-aliases-package: com.cvsreview.notice.persistence
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/**/*.xml
+
+### Oracle ###
+  datasource:
+    platform: oracle
+#    driverClassName: oracle.jdbc.OracleDriver
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:oracle:thin:@localhost:49161:XE
+    username: cvsreviewDev
+    password: cvsreviewDev$
+##############
+
+### JPA ###
+#  jpa:
+#    hibernate:
+#      ddl-auto : update
+##############
+
+### H2 ###
+#  datasource:
+#    driverClassName: org.h2.Driver
+#    url: jdbc:h2:mem:test
+#    username: reviewTest
+#    password: reviewTestPwd$
+#
+#  h2:
+#    console:
+#      enabled: true
+##############
+
+### MySQL ###
+#  datasource:
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/cvsreview?autoReconnect=true&useSSL=false
+#    username: reviewAdmin
+#    password: reviewPwd$
+##############
+
+---
+
+spring:
+  profiles: prod
+
+---
